@@ -23,6 +23,14 @@
                         <img src="{{ asset('storage/' . $project->image_path) }}" alt="">
                     </div>
                 @endif
+
+                <hr>
+                <h3>Tecnologie</h3>
+                <ul>
+                    @foreach ($project->technologies as $technology)
+                        <li>{{ $technology->name }}</li>
+                    @endforeach
+                </ul>
             </div>
             <div class="col-2"></div>
         </div>
