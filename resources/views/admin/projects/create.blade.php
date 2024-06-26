@@ -3,7 +3,6 @@
 @section('content')
     <div class="container">
         @include('partials.errors')
-
         <h1>Crea nuovo progetto</h1>
         <div class="row">
             <div class="col-2"></div>
@@ -19,9 +18,19 @@
                         <select class="form-select" name="type_id" id="type_id">
                             <option value="">Seleziona</option>
                             @foreach ($types as $type)
-                                <option @selected(old('type_id') === $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                                <option @selected(old('type_id') === $type->id) value="{{ $type->id }}">{{ $type->name }}
+                                </option>
                             @endforeach
                         </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="btn-group" role="group">
+                            @foreach ($technologies as $technology)
+                                <input name="technology[]" type="checkbox" class="btn-check" id="technology-{{$technology->id}}" value="{{$technology->id}}">
+                                <label class="btn btn-outline-primary" for="technology-{{$technology->id}}">{{$technology->name}}</label>
+                            @endforeach
+                        </div>
                     </div>
 
                     <div class="mb-3">
@@ -29,10 +38,11 @@
                         <input class="form-control" type="file" name="image" id="image">
                     </div>
 
-                    <div class="mb-3" >
+
+                    <div class="mb-3">
                         <h5>Preview immagine</h5>
                         <div id="preview">
-                            
+
                         </div>
                         <button class="btn btn-success" id="show-preview">Mostra preview</button>
                     </div>

@@ -32,7 +32,7 @@
                     <div class="mb-3" >
                         <h5>Preview immagine</h5>
                         <div id="preview">
-                            <img src="{{asset('storage/'. $project->image_path)}}" alt="">
+                            <img src="{{asset('storage/'.$project->image_path)}}" alt="">
                         </div>
                         <button class="btn btn-success" id="show-preview">Mostra preview</button>
                     </div>
