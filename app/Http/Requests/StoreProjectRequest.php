@@ -24,8 +24,9 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => ['unique:projects', 'min:5'],
             'description' => ['nullable', 'min:10', 'max:5000'],
-            'type_id' => ['nullable'],
-            'image' => ['nullable']
+            'type_id' => ['nullable', 'exists:types,id'], //Controllo che esista la foreign key
+            'image' => ['nullable'],
+            'technologies' => ['nullable', 'exists:technologies,id']
         ];
     }
 }

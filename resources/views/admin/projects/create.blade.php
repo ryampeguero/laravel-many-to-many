@@ -27,7 +27,7 @@
                     <div class="mb-3">
                         <div class="btn-group" role="group">
                             @foreach ($technologies as $technology)
-                                <input name="technology[]" type="checkbox" class="btn-check" id="technology-{{$technology->id}}" value="{{$technology->id}}">
+                                <input @checked(in_array($technology->id, old('technologies', []))) name="technologies[]" type="checkbox" class="btn-check" id="technology-{{$technology->id}}" value="{{$technology->id}}">
                                 <label class="btn btn-outline-primary" for="technology-{{$technology->id}}">{{$technology->name}}</label>
                             @endforeach
                         </div>
